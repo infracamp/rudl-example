@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  rudl_cloudfront:
+  rudl-cloudfront:
     image: infracamp/rudl-cloudfront
     deploy:
       mode: global
@@ -20,7 +20,7 @@ services:
     secrets:
       - rudl_cf_secret
 
-  rudl_principal:
+  rudl-principal:
     image: infracamp/rudl-principal
     environment:
       - CONF_CLUSTER_NAME=rudl.insecure.optools.net
