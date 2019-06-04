@@ -1,0 +1,58 @@
+version: "3.7"
+
+services:
+  rudl_cloudfront:
+    image: infracamp/rudl-cloudfront
+    deploy:
+      mode: global
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: host
+      - target: 443
+        published: 443
+        protocol: tcp
+        mode: host
+    networks:
+      - rudl-cf-net
+      - rudl-principal-net
+    secrets:
+      - rudl_cf_secret
+
+  rudl_principal:
+    image: infracamp/rudl-principal
+    name: rudl-principal
+    environment:
+      - CONF_CLUSTER_NAME=rudl.insecure.optools.net
+      - CONF_REPO_URL=https://github.com/infracamp/rudl-principal.git
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "rudl-principal-vol:/mnt"
+    networks:
+      - rudl-principal-net
+    secrets:
+      - rudl_cf_secret
+      - rudl_principal_secret
+
+
+volumes:
+  rudl-principal-vol:
+
+secrets:
+  rudl_cf_secret:
+    external: true
+
+  rudl_principal_secret:
+    external: true
+
+
+networks:
+  rudl-cf-net:
+    name: rudl-cf-net
+
+  rudl-principal-net:
+    external: false
