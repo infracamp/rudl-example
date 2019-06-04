@@ -22,7 +22,6 @@ services:
 
   rudl_principal:
     image: infracamp/rudl-principal
-    name: rudl-principal
     environment:
       - CONF_CLUSTER_NAME=rudl.insecure.optools.net
       - CONF_REPO_URL=https://github.com/infracamp/rudl-example.git
