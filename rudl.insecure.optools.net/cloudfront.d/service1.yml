@@ -1,5 +1,6 @@
 domains:
   - "data1.insecure.optools.net"
+  - "data2.insecure.optools.net"
 locations:
   - location: /
     proxy_pass: http://rudl-principal/
