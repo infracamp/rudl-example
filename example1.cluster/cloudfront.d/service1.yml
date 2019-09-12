@@ -1,0 +1,7 @@
+domains:
+  - "data6.insecure.optools.net"
+  - "data7.insecure.optools.net"
+locations:
+  - location: /
+    proxy_pass: http://rudl-principal/
+ssl_cert_id: service2

@@ -1,0 +1,8 @@
+
+registry_auth:
+  registry.gitlab.com:
+    user: some_user
+    pass: some_pass
+
+
+

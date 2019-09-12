@@ -1,0 +1,13 @@
+example.com. 1800  IN  SOA  ns1.example.com. mailbox.example.com. (
+                                                100   ; Seriennummer
+                                                300   ; Refresh Time
+                                                100   ; Retry Time
+                                                6000  ; Expire Time
+                                                600   ; negative Caching Zeit
+                                               )
+@ 1800  IN  NS ns1.example.com.
+@ 1800  IN  NS ns1.example.com.
+
+
+
+

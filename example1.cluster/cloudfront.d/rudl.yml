@@ -1,0 +1,5 @@
+domains:
+  - "rudl.insecure.optools.net"
+locations:
+  - location: /
+    proxy_pass: http://rudl-principal/
